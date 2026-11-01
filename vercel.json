@@ -1,0 +1,10 @@
+{
+  "buildCommand": "pnpm build:static",
+  "outputDirectory": "dist/public",
+  "framework": "vite",
+  "functions": {
+    "api/contact.ts": {
+      "maxDuration": 10
+    }
+  }
+}

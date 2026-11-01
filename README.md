@@ -1,14 +1,29 @@
-# Personal Developer Portfolio
+# Sherif Ahmed — Personal Portfolio
 
-React / Express / tRPC / Drizzle starter, adapted from the Sandbox web-db-user template.
+A visual-first React portfolio built with Vite and designed for direct deployment to Vercel.
 
-- `pnpm dev`: development server; honors `PORT` (default 3000).
-- `pnpm build` / `pnpm start`: build and serve `dist/index.js` and `dist/public/`.
-- `pnpm db:migrate`: apply checked-in migrations. `pnpm db:push`: generate and apply new schema changes.
-- `pnpm check` / `pnpm test`: types and application tests.
+## Local development
 
-Start with the Webdev skill's default-template guide. Platform login, storage, payments and service contracts live in its shared references; read the relevant capability before extending its helper.
+```bash
+pnpm install
+pnpm dev
+```
 
-`server/_core/publicConfig.ts` exposes only named public runtime values. Private keys stay server-side. The platform serves managed `/manus-storage/` assets; the application does not register a second proxy.
+The development server runs on port `3000` by default. Use `PORT=3001 pnpm dev` to choose another port.
 
-Platform configuration is readable and editable through `webdev.config`. Default settings are initial values, not enforced constraints. The agent may modify the files, commands and configuration or follow the flexible guide for another stack.
+## Production build
+
+```bash
+pnpm build
+pnpm start
+```
+
+The static output is written to `dist/public/`.
+
+## Vercel deployment
+
+This repository includes `vercel.json`, which tells Vercel to run `pnpm build:static` and publish `dist/public/`. Import the repository or upload the project folder as-is; do not set the Vercel output directory to `client` or `src`.
+
+The contact form uses the Vercel serverless function at `api/contact.ts`. Add `RESEND_API_KEY` in Vercel Project Settings → Environment Variables for email delivery. Without the key, the portfolio still builds and the form returns a clear configuration message.
+
+The project has no Express server, Manus runtime, database, OAuth, or platform-specific boot process.
