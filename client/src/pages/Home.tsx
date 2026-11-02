@@ -14,7 +14,7 @@ import {
   X,
 } from "lucide-react";
 
-const portraitSrc = "../sherif-portrait.jpg";
+const portraitSrc = ".../sherif.jpg";
 const portraitCoverSrc = "../my-eyes-cover.jpg";
 const portraitTrackStart = 170;
 
