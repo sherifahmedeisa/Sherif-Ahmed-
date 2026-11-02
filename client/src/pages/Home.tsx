@@ -14,8 +14,12 @@ import {
   X,
 } from "lucide-react";
 
-const portraitSrc = ".../sherif.jpg";
-const portraitCoverSrc = "../my-eyes-cover.jpg";
+import vouchImage from "../../../1.png";
+import katImage from "../../../2.png";
+import eisaImage from "../../../3.png";
+import portraitSrc from "../../../sherif.jpg";
+
+const portraitCoverSrc = "/my-eyes-cover.jpg";
 const portraitTrackStart = 170;
 
 type InquiryStatus = "idle" | "sending" | "success" | "error";
@@ -30,7 +34,7 @@ const projects = [
     tags: ["Security AI", "Multi-agent", "Founder"],
     kind: "vouch",
     tone: "violet",
-    image: "../1.png",
+    image: vouchImage,
     url: "https://vouch-eta-one.vercel.app/",
   },
   {
@@ -41,7 +45,7 @@ const projects = [
     tags: ["E-learning", "Payments", "Arabic / English"],
     kind: "kat",
     tone: "violet",
-    image: "../2.png",
+    image: katImage,
     url: "https://www.kat-training.com/",
   },
   {
@@ -52,16 +56,16 @@ const projects = [
     tags: ["Design systems", "Consulting", "Bilingual"],
     kind: "eisa",
     tone: "amber",
-    image: "../3.png",
+    image: eisaImage,
     url: "https://eisa.kat-training.com/en",
   },
 ];
 
-function ProjectVisual({ kind, tone }: { kind: string; tone: string }) {
+function ProjectVisual({ kind, tone, image }: { kind: string; tone: string; image: string }) {
   if (kind === "vouch") {
     return (
       <div className={`project-visual visual-vouch tone-${tone}`}>
-        <img src="../1.png" alt="Vouch autonomous security platform homepage" />
+        <img src={image} alt="Vouch autonomous security platform homepage" />
         <div className="vouch-image-wash" />
         <div className="vouch-caption"><span>FOUNDER / VOUCH</span><strong>Continuous security.<br /><em>On every commit.</em></strong></div>
         <span className="vouch-badge"><i /> OWN STARTUP</span>
@@ -72,7 +76,7 @@ function ProjectVisual({ kind, tone }: { kind: string; tone: string }) {
   if (kind === "kat") {
     return (
       <div className={`project-visual visual-kat tone-${tone}`}>
-        <img src="../2.png" alt="KAT Training course platform homepage" />
+        <img src={image} alt="KAT Training course platform homepage" />
         <div className="kat-image-wash" />
         <div className="kat-caption"><span>LIVE / KAT-TRAINING.COM</span><strong>Course platform<br /><em>with a complete flow.</em></strong></div>
         <span className="kat-live"><i /> LIVE</span>
@@ -83,7 +87,7 @@ function ProjectVisual({ kind, tone }: { kind: string; tone: string }) {
   if (kind === "eisa") {
     return (
       <div className={`project-visual visual-eisa tone-${tone}`}>
-        <img src="../3.png" alt="EISA consulting and training prototype homepage" />
+        <img src={image} alt="EISA consulting and training prototype homepage" />
         <div className="eisa-image-wash" />
         <div className="eisa-caption"><span>PROTOTYPE / EISA</span><strong>Rooted in excellence.<br /><em>Growing your vision.</em></strong></div>
         <span className="eisa-badge"><i /> KAT SYSTEM / 03</span>
@@ -268,12 +272,12 @@ export default function Home() {
 
         <section id="work" className="work-section section-wrap" aria-labelledby="work-title">
           <div className="section-heading"><div><span className="section-kicker">01 — SELECTED WORK</span><h2 id="work-title">A few things<br /><em>in motion.</em></h2></div><p>Currently collecting the projects that best represent how I think, build, and obsess over the last 10%.</p></div>
-          <div className="project-grid">{projects.map((project) => <article className="project-card" key={project.number}><ProjectVisual kind={project.kind} tone={project.tone} /><div className="project-info"><div><span className="project-number">{project.number}</span><span className="project-label">{project.label}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>{project.url ? <a className="project-arrow" href={project.url} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><ArrowUpRight size={18} /></a> : <button className="project-arrow" aria-label={`Open ${project.title}`}><ArrowUpRight size={18} /></button>}</article>)}</div>
+          <div className="project-grid">{projects.map((project) => <article className="project-card" key={project.number}><ProjectVisual kind={project.kind} tone={project.tone} image={project.image} /><div className="project-info"><div><span className="project-number">{project.number}</span><span className="project-label">{project.label}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>{project.url ? <a className="project-arrow" href={project.url} target="_blank" rel="noreferrer" aria-label={`Open ${project.title}`}><ArrowUpRight size={18} /></a> : <button className="project-arrow" aria-label={`Open ${project.title}`}><ArrowUpRight size={18} /></button>}</article>)}</div>
           <div className="work-footer"><span>More work is loading in the background.</span><span className="footer-rule" /><span>2026 <ArrowUpRight size={13} /></span></div>
         </section>
 
         <section id="about" className="about-section section-wrap" aria-labelledby="about-title">
-          <div className="about-copy"><span className="section-kicker">02 — THE SHORT VERSION</span><div className="about-title-row"><h2 id="about-title">Less noise.<br /><em>More signal.</em></h2><span className="about-index">/ 02</span></div><div className="about-intro"><p className="about-quote">I build the bridge between <em>complex systems</em> and clear human experiences.</p><div className="about-facts"><span><b>01</b> Founder of Vouch</span><span><b>02</b> Product-minded programmer</span><span><b>03</b> Cairo University senior</span></div></div><p>I’m a programmer drawn to the intersection of logic and feeling. I build products, lead ambitious experiments, and care about the small decisions that make a system feel considered.</p><p>I’m currently in my fourth year studying Computer Science and Artificial Intelligence at Cairo University, with graduation expected in 2027. Alongside the degree, I’m building Vouch and continuing to ship useful products for real teams.</p><div className="education-card"><span className="education-logo"><img src="/manus-storage/pasted_file_YcklIj_image_cdabee68.png" alt="Cairo University logo" /></span><div><strong>Computer Science & Artificial Intelligence</strong><span>Cairo University · Fourth year · Expected graduation 2027</span></div></div><a className="text-link" href="#contact">More about the approach <ChevronRight size={15} /></a></div>
+          <div className="about-copy"><span className="section-kicker">02 — THE SHORT VERSION</span><div className="about-title-row"><h2 id="about-title">Less noise.<br /><em>More signal.</em></h2><span className="about-index">/ 02</span></div><div className="about-intro"><p className="about-quote">I build the bridge between <em>complex systems</em> and clear human experiences.</p><div className="about-facts"><span><b>01</b> Founder of Vouch</span><span><b>02</b> Product-minded programmer</span><span><b>03</b> Cairo University senior</span></div></div><p>I’m a programmer drawn to the intersection of logic and feeling. I build products, lead ambitious experiments, and care about the small decisions that make a system feel considered.</p><p>I’m currently in my fourth year studying Computer Science and Artificial Intelligence at Cairo University, with graduation expected in 2027. Alongside the degree, I’m building Vouch and continuing to ship useful products for real teams.</p><div className="education-card"><span className="education-logo" aria-hidden="true">CU</span><div><strong>Computer Science & Artificial Intelligence</strong><span>Cairo University · Fourth year · Expected graduation 2027</span></div></div><a className="text-link" href="#contact">More about the approach <ChevronRight size={15} /></a></div>
         </section>
 
         <section id="contact" className="contact-section section-wrap" aria-labelledby="contact-title"><div className="contact-topline"><span className="section-kicker">03 — OPEN CHANNEL</span><span>Have a good problem?</span></div><div className="contact-layout"><h2 id="contact-title">Let’s make<br /><span className="hero-gradient">something clear.</span></h2><div className="contact-card"><p>Founder of Vouch, programmer, and product builder. Find the wider trail of work and the people I’m learning with below.</p><button className="button button-light" onClick={openConnect}>Let’s connect <ArrowUpRight size={16} /></button><div className="contact-links"><button className="contact-link-button" onClick={openConnect} aria-label="Open Sherif Ahmed contact form"><Mail size={16} /> Email</button><a href="https://github.com/sherifahmedeisa" target="_blank" rel="noreferrer" aria-label="Sherif Ahmed on GitHub"><Github size={16} /> GitHub</a><a href="https://www.linkedin.com/in/sherif-ahmed-eisa/" target="_blank" rel="noreferrer" aria-label="Sherif Ahmed on LinkedIn"><Linkedin size={16} /> LinkedIn</a></div></div></div></section>
