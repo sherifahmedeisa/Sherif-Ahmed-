@@ -14,8 +14,8 @@ import {
   X,
 } from "lucide-react";
 
-const portraitSrc = "/manus-storage/pasted_file_XyEIl9_1000434281_dad4b939.jpg";
-const portraitCoverSrc = "/my-eyes-cover.jpg";
+const portraitSrc = "../sherif-portrait.jpg";
+const portraitCoverSrc = "../my-eyes-cover.jpg";
 const portraitTrackStart = 170;
 
 type InquiryStatus = "idle" | "sending" | "success" | "error";
@@ -30,7 +30,7 @@ const projects = [
     tags: ["Security AI", "Multi-agent", "Founder"],
     kind: "vouch",
     tone: "violet",
-    image: "/manus-storage/pasted_file_0EZ4f8_image_a443e5e3.png",
+    image: "../1.png",
     url: "https://vouch-eta-one.vercel.app/",
   },
   {
@@ -41,7 +41,7 @@ const projects = [
     tags: ["E-learning", "Payments", "Arabic / English"],
     kind: "kat",
     tone: "violet",
-    image: "/manus-storage/pasted_file_evP5iU_image_7b2303bd.png",
+    image: "../2.png",
     url: "https://www.kat-training.com/",
   },
   {
@@ -52,7 +52,7 @@ const projects = [
     tags: ["Design systems", "Consulting", "Bilingual"],
     kind: "eisa",
     tone: "amber",
-    image: "/manus-storage/pasted_file_CvOhDV_image_c3cb5669.png",
+    image: "../3.png",
     url: "https://eisa.kat-training.com/en",
   },
 ];
@@ -61,7 +61,7 @@ function ProjectVisual({ kind, tone }: { kind: string; tone: string }) {
   if (kind === "vouch") {
     return (
       <div className={`project-visual visual-vouch tone-${tone}`}>
-        <img src="/manus-storage/pasted_file_0EZ4f8_image_a443e5e3.png" alt="Vouch autonomous security platform homepage" />
+        <img src="../1.png" alt="Vouch autonomous security platform homepage" />
         <div className="vouch-image-wash" />
         <div className="vouch-caption"><span>FOUNDER / VOUCH</span><strong>Continuous security.<br /><em>On every commit.</em></strong></div>
         <span className="vouch-badge"><i /> OWN STARTUP</span>
@@ -72,7 +72,7 @@ function ProjectVisual({ kind, tone }: { kind: string; tone: string }) {
   if (kind === "kat") {
     return (
       <div className={`project-visual visual-kat tone-${tone}`}>
-        <img src="/manus-storage/pasted_file_evP5iU_image_7b2303bd.png" alt="KAT Training course platform homepage" />
+        <img src="../2.png" alt="KAT Training course platform homepage" />
         <div className="kat-image-wash" />
         <div className="kat-caption"><span>LIVE / KAT-TRAINING.COM</span><strong>Course platform<br /><em>with a complete flow.</em></strong></div>
         <span className="kat-live"><i /> LIVE</span>
@@ -83,7 +83,7 @@ function ProjectVisual({ kind, tone }: { kind: string; tone: string }) {
   if (kind === "eisa") {
     return (
       <div className={`project-visual visual-eisa tone-${tone}`}>
-        <img src="/manus-storage/pasted_file_CvOhDV_image_c3cb5669.png" alt="EISA consulting and training prototype homepage" />
+        <img src="../3.png" alt="EISA consulting and training prototype homepage" />
         <div className="eisa-image-wash" />
         <div className="eisa-caption"><span>PROTOTYPE / EISA</span><strong>Rooted in excellence.<br /><em>Growing your vision.</em></strong></div>
         <span className="eisa-badge"><i /> KAT SYSTEM / 03</span>

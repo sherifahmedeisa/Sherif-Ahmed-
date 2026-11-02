@@ -37,12 +37,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       method: "POST",
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: "Sherif Ahmed Portfolio <onboarding@resend.dev>",
+        from: "Sherif Portfolio <onboarding@resend.dev>",
         to: ["sherifahed25@gmail.com"],
         reply_to: email,
-        subject: `Portfolio inquiry from ${name}`,
+        subject: `Portfolio Message from ${name}`,
         text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-        html: `<h2>New portfolio inquiry</h2><p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> ${escapeHtml(email)}</p><p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>`,
+        html: `<h2>New portfolio Message</h2><p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> ${escapeHtml(email)}</p><p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>`,
       }),
     });
 
